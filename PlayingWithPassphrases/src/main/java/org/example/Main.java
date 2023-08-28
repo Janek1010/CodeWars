@@ -40,6 +40,9 @@ public class Main {
                 if (c > 'z'){
                     c -= 26;
                 }
+                if (i % 2 == 0){
+                    c -= 32;
+                }
             }
 
             // 2. replace each digit by its complement to 9
@@ -51,7 +54,9 @@ public class Main {
             }
             //3 .  keep such as non alphabetic and non digit characters NOTHING TO DO
             chars[i] = c;
+
         }
-        return String.valueOf(chars);
+        StringBuilder str = new StringBuilder(String.valueOf(chars));
+        return str.reverse().toString();
     }
 }
