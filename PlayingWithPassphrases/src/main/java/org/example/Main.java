@@ -29,12 +29,10 @@ public class Main {
         System.out.println(playPass("BORN IN 2015!", 1));
     }
     public static String playPass(String s, int n) {
-        s = s.toLowerCase();
-        char[] chars = s.toCharArray();
+        char[] chars = s.toLowerCase().toCharArray();
         for (int i = 0; i < chars.length; i++) {
             char c = chars[i];
 
-            // 1. shift each letter by a given number but the transformed letter must be a letter (circular shift),
             if (c >= 'a' &&  c <= 'z' ){
                 c += n;
                 if (c > 'z'){
@@ -45,14 +43,12 @@ public class Main {
                 }
             }
 
-            // 2. replace each digit by its complement to 9
             else if (c >= '0' && c <= '9'){
                 int valueC = Character.valueOf(c);
                 // 57 is 9 in ascii, 48 is 0
                 int newValue = 57 - valueC + 48;
                 c = (char)newValue;
             }
-            //3 .  keep such as non alphabetic and non digit characters NOTHING TO DO
             chars[i] = c;
 
         }
